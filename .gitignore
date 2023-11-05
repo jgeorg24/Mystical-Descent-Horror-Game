@@ -1,5 +1,7 @@
 # Excluded folders
 /.vs/
+.vs/
+.vs/the-philosophers-trials/FileContentIndex
 /Temp
 Temp/
 /UIElementsSchema
@@ -46,6 +48,7 @@ ExportedObj/
 *.aps
 *.pch
 *.vspscc
+*.vsidx
 *_i.c
 *_p.c
 *.ncb
