@@ -24,10 +24,7 @@ public class Movement : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        Vector3 rotation = new Vector3(transform.rotation.x, cam.rotation.y, transform.rotation.z);
-        transform.rotation = Quaternion.Euler(rotation);
-
-        Vector3 move = new Vector3(horizontal, 0, vertical);
+        Vector3 move = transform.forward * vertical + transform.right * horizontal;
         controller.Move(move * speed * Time.deltaTime);
     }
 }
