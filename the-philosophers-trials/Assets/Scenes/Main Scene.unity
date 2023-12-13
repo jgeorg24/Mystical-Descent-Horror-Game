@@ -6454,12 +6454,14 @@ MonoBehaviour:
   - {fileID: 2018631789}
   - {fileID: 1799709714}
   moveSpeed: 2.5
-  player:
+  playerLayer:
     serializedVersion: 2
     m_Bits: 64
   playerTransform: {fileID: 1902320473}
   gridVisualizer: {fileID: 1892748237}
-  detectionRange: 6
+  playerMovement: {fileID: 1902320474}
+  baseDetectionRange: 6
+  pathUpdateThreshold: 0.1
 --- !u!135 &1465750825
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8440,7 +8442,6 @@ MonoBehaviour:
   runSpeed: 10
   crouchSpeed: 2.5
   crouchHeightFactor: 0.3
-  runningShakeAmount: 0.1
 --- !u!143 &1902320475
 CharacterController:
   m_ObjectHideFlags: 0
