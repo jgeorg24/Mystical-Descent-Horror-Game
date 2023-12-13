@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -11,20 +9,83 @@ public class Movement : MonoBehaviour
     private float vertical;
 
     public float speed = 5f;
+    public float runSpeed = 10f;
+    public float crouchSpeed = 2.5f;
+    public float crouchHeightFactor = 0.3f;
 
-    // Start is called before the first frame update
+    private float originalCamHeight;
+    private Vector3 originalCamPos;
+
+    public bool IsRunning { get; private set; }
+    public bool IsCrouching { get; private set; }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        originalCamHeight = cam.localPosition.y;
+        originalCamPos = cam.localPosition;
+        IsRunning = false;
+        IsCrouching = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         Vector3 move = transform.forward * vertical + transform.right * horizontal;
-        controller.Move(move * speed * Time.deltaTime);
+
+        // Running
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            controller.Move(move * runSpeed * Time.deltaTime);
+            IsRunning = true;
+            IsCrouching = false;
+        }
+        // Crouching
+        else if (Input.GetKey(KeyCode.C))
+        {
+            Crouch();
+            controller.Move(move * crouchSpeed * Time.deltaTime);
+            IsRunning = false;
+            IsCrouching = true;
+        }
+        else
+        {
+            if (IsCrouching)
+            {
+                StandUp();
+            }
+            cam.localPosition = originalCamPos; // Reset camera position
+            controller.Move(move * speed * Time.deltaTime);
+            IsRunning = false;
+            IsCrouching = false;
+        }
+    }
+
+    void Crouch()
+    {
+        if (!IsCrouching)
+        {
+            cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight * crouchHeightFactor, cam.localPosition.z);
+        }
+    }
+
+    void StandUp()
+    {
+        cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
     }
 }
+
+
+    // void RunCameraEffect()
+    // {
+    //     if (vertical != 0 || horizontal != 0) // Add camera shake when running
+    //     {
+    //         cam.localPosition = originalCamPos + Random.insideUnitSphere * runningShakeAmount;
+    //     }
+    //     else
+    //     {
+    //         cam.localPosition = originalCamPos;
+    //     }
+    // }
