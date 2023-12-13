@@ -14,13 +14,12 @@ public class GridVisualizer : MonoBehaviour
     void Start()
     {
         InitializeGrid();
-        VisualizeGrid();
     }
 
 void InitializeGrid()
 {
     Vector3 terrainSize = terrain.GetComponent<Terrain>().terrainData.size;
-    Vector3 enemySize = enemy.GetComponent<Renderer>().bounds.size;
+    Vector3 enemySize = enemy.GetComponent<Collider>().bounds.size;
     cellSize = Mathf.Max(enemySize.x, enemySize.z);
     gridSizeX = Mathf.CeilToInt(terrainSize.x / cellSize);
     gridSizeZ = Mathf.CeilToInt(terrainSize.z / cellSize);
@@ -40,18 +39,18 @@ void InitializeGrid()
 }
 
 
-    void VisualizeGrid()
-    {
-        for (int x = 0; x < gridSizeX; x++)
-        {
-            for (int z = 0; z < gridSizeZ; z++)
-            {
-                Vector3 cellCenter = new Vector3(x * cellSize + cellSize / 2, 0, z * cellSize + cellSize / 2) + terrain.transform.position;
-                Debug.DrawLine(cellCenter - Vector3.right * cellSize / 2, cellCenter + Vector3.right * cellSize / 2, grid[x, z].walkable ? Color.green : Color.red, 100f);
-                Debug.DrawLine(cellCenter - Vector3.forward * cellSize / 2, cellCenter + Vector3.forward * cellSize / 2, grid[x, z].walkable ? Color.green : Color.red, 100f);
-            }
-        }
-    }
+    // void VisualizeGrid()
+    // {
+    //     for (int x = 0; x < gridSizeX; x++)
+    //     {
+    //         for (int z = 0; z < gridSizeZ; z++)
+    //         {
+    //             Vector3 cellCenter = new Vector3(x * cellSize + cellSize / 2, 0, z * cellSize + cellSize / 2) + terrain.transform.position;
+    //             Debug.DrawLine(cellCenter - Vector3.right * cellSize / 2, cellCenter + Vector3.right * cellSize / 2, grid[x, z].walkable ? Color.green : Color.red, 100f);
+    //             Debug.DrawLine(cellCenter - Vector3.forward * cellSize / 2, cellCenter + Vector3.forward * cellSize / 2, grid[x, z].walkable ? Color.green : Color.red, 100f);
+    //         }
+    //     }
+    // }
 
     public Node NodeFromWorldPoint(Vector3 worldPosition)
     {

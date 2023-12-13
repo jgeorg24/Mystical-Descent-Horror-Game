@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-
         Vector3 move = transform.forward * vertical + transform.right * horizontal;
 
         // Running
@@ -75,6 +74,8 @@ public class Movement : MonoBehaviour
     {
         cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
     }
+
+
 }
 
 
