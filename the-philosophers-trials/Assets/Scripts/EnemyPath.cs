@@ -97,9 +97,8 @@ IEnumerator FollowPath(System.Collections.Generic.List<Node> path)
         Vector3 nextPosition = node.worldPosition;
         while (Vector3.Distance(transform.position, nextPosition) > 0.1f)
         {
-                moveSpeed = 8;
             OrientTowards(nextPosition); 
-            transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime * 1.25f);
 
             yield return null;
         }

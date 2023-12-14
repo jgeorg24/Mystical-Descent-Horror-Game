@@ -138,7 +138,7 @@ private IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
 
     private void GameWin()
     {
-        if (StoneCollection.crystalCount == 3)
+        if (StoneCollection.crystalCount != 3)
         {
             SceneManager.LoadScene("Win Screen");
         }
