@@ -25,10 +25,10 @@ public class EnemyPath : MonoBehaviour
         transform.position = waypoints[waypointIndex].transform.position;
         pathfinding = new Pathfinding(gridVisualizer); // Create a new instance of Pathfinding
         audioSource = GetComponent<AudioSource>();
-        //StartCoroutine(PrintPlayerState());
     }
     void Update()
     {
+        GameLost();
         UpdateDetectionRange();
 
         if (Physics.OverlapSphere(transform.position, detectionRange, playerLayer).Length > 0)
@@ -45,13 +45,7 @@ public class EnemyPath : MonoBehaviour
             MoveToWaypoints();
         }
     }
-    private void PlayPathfindingSound()
-    {
-        if (audioSource != null)
-        {
-            audioSource.Play(); // Play the audio clip
-        }
-    }
+
     private void UpdateDetectionRange()
     {
         if (playerMovement.IsRunning)
@@ -65,16 +59,6 @@ public class EnemyPath : MonoBehaviour
         else
         {
             detectionRange = baseDetectionRange;
-        }
-    }
-
-    IEnumerator PrintPlayerState()
-    {
-        while (true)
-        {
-            string state = playerMovement.IsRunning ? "Running" : playerMovement.IsCrouching ? "Crouching" : "Walking";
-            Debug.Log("Player State: " + state);
-            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -99,7 +83,6 @@ public class EnemyPath : MonoBehaviour
     {
         if (!followingPath) // Check if the enemy is not already following a path
         {
-            // PlayPathfindingSound(); // Play sound when starting to pathfind
             followingPath = true; // Set followingPath to true here
         }
         StopAllCoroutines();
@@ -114,20 +97,16 @@ IEnumerator FollowPath(System.Collections.Generic.List<Node> path)
         Vector3 nextPosition = node.worldPosition;
         while (Vector3.Distance(transform.position, nextPosition) > 0.1f)
         {
+                moveSpeed = 8;
             OrientTowards(nextPosition); 
             transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
 
-            /*if(Vector3.Distance(transform.position, playerTransform.position) <= AttackRange) {
-                AttackPlayer();
-                yield break;
-            }*/
             yield return null;
         }
     }
 
     followingPath = false; // Reset followingPath to false here
 }
-
 
     // New method to orient the enemy towards the target position
     private void OrientTowards(Vector3 targetPosition)
@@ -140,9 +119,11 @@ IEnumerator FollowPath(System.Collections.Generic.List<Node> path)
         }
     }
 
-/*private void AttackPlayer()
+    private void GameLost()
     {
-        Debug.Log("Attacked player");
-        SceneManager.LoadSceneAsync(0);
-    }*/
+        if (Vector3.Distance(transform.position, playerTransform.position) <= 1.5)
+        {
+            SceneManager.LoadScene("Lose Screen");
+        }
+    }
 }

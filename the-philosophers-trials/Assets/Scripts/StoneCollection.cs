@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StoneCollection : MonoBehaviour
 {
-    private static int crystalCount = 0;
+    public static int crystalCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +12,8 @@ public class StoneCollection : MonoBehaviour
             Debug.Log("Crystals collected: " + crystalCount);
 
             // Destroy the crystal object
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
     }
 }

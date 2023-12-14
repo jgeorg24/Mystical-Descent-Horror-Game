@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0412504, g: 0.07305349, b: 0.12561938, a: 1}
+  m_IndirectSpecularColor: {r: 0.041250892, g: 0.07305416, b: 0.12561989, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -399,7 +399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.946
+      value: -7.26
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.669
+      value: -46.46
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -446,7 +446,7 @@ PrefabInstance:
       addedObject: {fileID: 735004684}
     - targetCorrespondingSourceObject: {fileID: 8182421251914787382, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 735004683}
+      addedObject: {fileID: 735004688}
   m_SourcePrefab: {fileID: 100100000, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
 --- !u!1001 &71569447
 PrefabInstance:
@@ -1226,7 +1226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.043
+      value: -7.57
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1234,7 +1234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.656
+      value: -53.23
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1273,7 +1273,7 @@ PrefabInstance:
       addedObject: {fileID: 625846281}
     - targetCorrespondingSourceObject: {fileID: 8182421251914787382, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 625846282}
+      addedObject: {fileID: 625846286}
   m_SourcePrefab: {fileID: 100100000, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
 --- !u!1001 &232469884
 PrefabInstance:
@@ -2352,18 +2352,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8182421251914787382, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
   m_PrefabInstance: {fileID: 1677025035}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &427283256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427283252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188c14fa4b07c40ada66319d9bd08e1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &427283257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2385,6 +2373,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5851464, y: 5.562396, z: 8.51108}
   m_Center: {x: 0, y: 2.781197, z: -0.00000047683716}
+--- !u!114 &427283261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427283252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188c14fa4b07c40ada66319d9bd08e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &446893283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3585,7 +3585,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5851464, y: 5.562396, z: 8.51108}
   m_Center: {x: 0, y: 2.781197, z: -0.00000047683716}
---- !u!114 &625846282
+--- !u!114 &625846286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4207,18 +4207,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8182421251914787382, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
   m_PrefabInstance: {fileID: 62940652}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &735004683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735004679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188c14fa4b07c40ada66319d9bd08e1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &735004684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4240,6 +4228,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5851464, y: 5.562396, z: 8.51108}
   m_Center: {x: 0, y: 2.781197, z: -0.00000047683716}
+--- !u!114 &735004688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735004679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188c14fa4b07c40ada66319d9bd08e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &735166622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4859,8 +4859,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 0.75, z: 0.75}
-  m_Center: {x: 0.1, y: 0.25, z: 0.6}
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: 0.1, y: 1, z: 0.6}
 --- !u!114 &768523903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7386,8 +7386,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 0.75, z: 0.75}
-  m_Center: {x: 0.1, y: 0.25, z: 0.6}
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: 0.1, y: 1, z: 0.6}
 --- !u!114 &1392242391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7712,8 +7712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 1902320473}
-  xSens: 600
-  ySens: 600
+  xSens: 400
+  ySens: 400
 --- !u!1001 &1461287577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8891,7 +8891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.201
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8899,7 +8899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.342
+      value: -49.9
       objectReference: {fileID: 0}
     - target: {fileID: 8846789760149926028, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8938,7 +8938,7 @@ PrefabInstance:
       addedObject: {fileID: 427283257}
     - targetCorrespondingSourceObject: {fileID: 8182421251914787382, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 427283256}
+      addedObject: {fileID: 427283261}
   m_SourcePrefab: {fileID: 100100000, guid: 9a1c7a46ba805d04d8bd58479bf6135a, type: 3}
 --- !u!1001 &1702036096
 PrefabInstance:
@@ -9149,8 +9149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 0.75, z: 0.75}
-  m_Center: {x: 0.1, y: 0.25, z: 0.6}
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: 0.100017466, y: 1, z: 0.6}
 --- !u!114 &1702036100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9345,8 +9345,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 0.75, z: 0.75}
-  m_Center: {x: 0.1, y: 0.25, z: 0.6}
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: 0.1, y: 1, z: 0.6}
 --- !u!82 &1724439495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10422,7 +10422,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 10
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001

@@ -5,6 +5,7 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
+    private StoneCollection collection;
     [SerializeField] Transform enemy;
     private CharacterController controller;
     public Transform cam;
@@ -42,7 +43,6 @@ public class Movement : MonoBehaviour
     void Update()
     {
         GameWin();
-        GameLost();
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         Vector3 move = transform.forward * vertical + transform.right * horizontal;
@@ -135,17 +135,10 @@ private IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
         cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
     }
 
-    private void GameLost()
-    {
-        if (Vector3.Distance(transform.position, enemy.position) <= 1.5)
-        {
-            SceneManager.LoadScene("Lose Screen");
-        }
-    }
 
     private void GameWin()
     {
-        if (true == false)
+        if (StoneCollection.crystalCount == 3)
         {
             SceneManager.LoadScene("Win Screen");
         }
