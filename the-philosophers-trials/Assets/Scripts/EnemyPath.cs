@@ -25,7 +25,7 @@ public class EnemyPath : MonoBehaviour
         transform.position = waypoints[waypointIndex].transform.position;
         pathfinding = new Pathfinding(gridVisualizer); // Create a new instance of Pathfinding
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(PrintPlayerState());
+        //StartCoroutine(PrintPlayerState());
     }
     void Update()
     {

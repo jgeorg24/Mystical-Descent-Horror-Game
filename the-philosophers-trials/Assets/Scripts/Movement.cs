@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class Movement : MonoBehaviour
 {
     private CharacterController controller;
     public Transform cam;
-
+    public AudioClip heavyBreathingSound; // Assign this in the Inspector
+    private AudioSource audioSource;
     private float horizontal;
     private float vertical;
 
@@ -15,9 +17,11 @@ public class Movement : MonoBehaviour
 
     private float originalCamHeight;
     private Vector3 originalCamPos;
+    private float runKeyHoldTime = 0f;
 
     public bool IsRunning { get; private set; }
     public bool IsCrouching { get; private set; }
+    
 
     void Start()
     {
@@ -26,40 +30,91 @@ public class Movement : MonoBehaviour
         originalCamPos = cam.localPosition;
         IsRunning = false;
         IsCrouching = false;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = heavyBreathingSound;
+        audioSource.loop = true;
+        audioSource.volume = 0f; // Start with volume at 0
     }
 
-    void Update()
-    {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        Vector3 move = transform.forward * vertical + transform.right * horizontal;
+void Update()
+{
+    horizontal = Input.GetAxis("Horizontal");
+    vertical = Input.GetAxis("Vertical");
+    Vector3 move = transform.forward * vertical + transform.right * horizontal;
 
-        // Running
-        if (Input.GetKey(KeyCode.LeftShift))
+    // Running
+    if (Input.GetKey(KeyCode.LeftShift))
+    {
+        controller.Move(move * runSpeed * Time.deltaTime);
+        IsRunning = true;
+        IsCrouching = false;
+
+        runKeyHoldTime += Time.deltaTime;
+
+        if (runKeyHoldTime > 1f && !audioSource.isPlaying)
         {
-            controller.Move(move * runSpeed * Time.deltaTime);
-            IsRunning = true;
-            IsCrouching = false;
+            audioSource.Play();
+            StartCoroutine(FadeIn(audioSource, 1f)); // Start fading in after 1 second of running
         }
-        // Crouching
-        else if (Input.GetKey(KeyCode.C))
+    }
+    else
+    {
+        if (IsRunning && audioSource.isPlaying)
         {
-            Crouch();
-            controller.Move(move * crouchSpeed * Time.deltaTime);
+            runKeyHoldTime = 0f; // Reset the timer
+            StopCoroutine(FadeIn(audioSource, 1f)); // Stop any ongoing fade-in
+            StartCoroutine(FadeOut(audioSource, 1f)); // Immediately start fading out
             IsRunning = false;
-            IsCrouching = true;
         }
-        else
-        {
-            if (IsCrouching)
+
+            // Crouching
+            if (Input.GetKey(KeyCode.C))
             {
-                StandUp();
+                Crouch();
+                controller.Move(move * crouchSpeed * Time.deltaTime);
+                IsCrouching = true;
             }
-            cam.localPosition = originalCamPos; // Reset camera position
-            controller.Move(move * speed * Time.deltaTime);
-            IsRunning = false;
-            IsCrouching = false;
+            else
+            {
+                if (IsCrouching)
+                {
+                    StandUp();
+                }
+                cam.localPosition = originalCamPos; // Reset camera position
+                controller.Move(move * speed * Time.deltaTime);
+                IsCrouching = false;
+            }
         }
+    }
+
+private IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
+{
+    float targetVolume = 1f;
+    audioSource.volume = 0;
+
+    while (audioSource.volume < targetVolume && IsRunning)
+    {
+        audioSource.volume += Time.deltaTime / fadeTime;
+        yield return null;
+    }
+
+    if (!IsRunning)
+    {
+        audioSource.Stop();
+    }
+}
+
+    private IEnumerator FadeOut(AudioSource audioSource, float fadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume; // Reset the volume for the next play
     }
 
     void Crouch()
@@ -74,8 +129,6 @@ public class Movement : MonoBehaviour
     {
         cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
     }
-
-
 }
 
 
