@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
-    private static int crystalCount = 0;
+    public static int crystalCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,5 +17,10 @@ public class Crystal : MonoBehaviour
             gameObject.SetActive(false); // Deactivate
             // Destroy(gameObject); // Alternatively, destroy the crystal
         }
+    }
+
+    public static void resetCount()
+    {
+        crystalCount = 0;
     }
 }

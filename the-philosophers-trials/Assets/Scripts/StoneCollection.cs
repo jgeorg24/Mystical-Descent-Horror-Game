@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StoneCollection : MonoBehaviour
 {
-    public static int crystalCount = 0;
+    public int crystalCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {

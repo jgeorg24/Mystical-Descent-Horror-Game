@@ -5,7 +5,8 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
-    private StoneCollection collection;
+    [SerializeField] private Transform plane;
+    [SerializeField] private float numCrystals;
     [SerializeField] Transform enemy;
     private CharacterController controller;
     public Transform cam;
@@ -138,9 +139,12 @@ private IEnumerator FadeIn(AudioSource audioSource, float fadeTime)
 
     private void GameWin()
     {
-        if (StoneCollection.crystalCount != 3)
+        Debug.Log(Crystal.crystalCount);
+
+        if (Crystal.crystalCount >= numCrystals && Vector3.Distance(transform.position, plane.position) <= 2)
         {
             SceneManager.LoadScene("Win Screen");
+            Crystal.resetCount();
         }
     }
 }
