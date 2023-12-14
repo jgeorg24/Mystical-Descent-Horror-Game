@@ -923,7 +923,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. \n2.\n3.\n4.\n5.\n6.\n7.\n8.\n9.\n10."
+  m_text: '1. Collect all stone fragments scattered in the maze. (3 in regular |
+    6 in madness)
+
+    2. Avoid the monsters that lurk in the depths
+
+    3. Upon
+    retrieving the stone fragments, find the alter to perform the ritual
+
+    4.
+    Shift will allow you to run but makes you louder thus monster can hear you from
+    further out
+
+    5. C allows you to sneak by decreasing sound but slows you down
+    drastically
+
+    6. SURVIVE AND ESCAPE!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
