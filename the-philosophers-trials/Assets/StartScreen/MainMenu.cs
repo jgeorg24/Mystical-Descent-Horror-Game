@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Main Scene"); // Replace "YourGameScene" with the actual name of your game scene
     }
 
+    public void PlayGameHard()
+    {
+        SceneManager.LoadScene("Madness"); // Replace "YourGameScene" with the actual name of your game scene
+    }
+
     public void InstructionsLoad()
     {
         SceneManager.LoadScene("Instructions"); // Replace "YourGameScene" with the actual name of your game scene    }
