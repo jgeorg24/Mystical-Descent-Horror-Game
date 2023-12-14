@@ -1,7 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] Transform enemy;
     private CharacterController controller;
     public Transform cam;
 
@@ -30,6 +33,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        GameWin();
+        GameLost();
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         Vector3 move = transform.forward * vertical + transform.right * horizontal;
@@ -75,7 +80,21 @@ public class Movement : MonoBehaviour
         cam.localPosition = new Vector3(cam.localPosition.x, originalCamHeight, cam.localPosition.z);
     }
 
+    private void GameLost()
+    {
+        if (Vector3.Distance(transform.position, enemy.position) <= 1.5)
+        {
+            SceneManager.LoadScene("Lose Screen");
+        }
+    }
 
+    private void GameWin()
+    {
+        if (true == false)
+        {
+            SceneManager.LoadScene("Win Screen");
+        }
+    }
 }
 
 

@@ -4,9 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ReturnToMain : MonoBehaviour
 {
+    private void Update()
+    {
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Main Scene")
+        {
+            SceneManager.UnloadSceneAsync("Main Scene");
+        }
+       
+    }
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(0); // Replace "YourGameScene" with the actual name of your game scene
+        SceneManager.LoadScene("StartScene"); 
     }
 
     public void QuitGame()

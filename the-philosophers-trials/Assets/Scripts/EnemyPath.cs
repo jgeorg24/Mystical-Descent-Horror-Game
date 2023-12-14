@@ -117,10 +117,10 @@ IEnumerator FollowPath(System.Collections.Generic.List<Node> path)
             OrientTowards(nextPosition); 
             transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
 
-            if(Vector3.Distance(transform.position, playerTransform.position) <= AttackRange) {
+            /*if(Vector3.Distance(transform.position, playerTransform.position) <= AttackRange) {
                 AttackPlayer();
                 yield break;
-            }
+            }*/
             yield return null;
         }
     }
@@ -140,9 +140,9 @@ IEnumerator FollowPath(System.Collections.Generic.List<Node> path)
         }
     }
 
-private void AttackPlayer()
+/*private void AttackPlayer()
     {
         Debug.Log("Attacked player");
         SceneManager.LoadSceneAsync(0);
-    }
+    }*/
 }
