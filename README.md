@@ -1,8 +1,8 @@
 # Mystical Descent Game Project
 
-## Game Developer | Aug 2023 - Dec 2023
+## August 2023 - December 2023
 
-Welcome to the Mystical Descent Game Project README! This project showcases my work as a Game Developer from August 2023 to December 2023. During this period, I contributed to the development of Mystical Descent, a first-person horror game using Unity.
+Welcome to the Mystical Descent Game Project! This project showcases game development from August 2023 to December 2023. During this period, I contributed to the development of Mystical Descent, a first-person horror game using Unity.
 
 ### Key Achievements:
 
